@@ -8,9 +8,32 @@ $(function(){
   $('#slide_tray').width(slideWidth * slideCount);
 
   $('#next').click(function () {
-    pos += 1;
+    if (pos < slideCount - 1) {
+      pos += 1;
+    } else {
+      pos = 0;
+    }
+    var slideAmount = slideWidth * pos;
+    $('#slide_tray').animate({right: slideAmount}, 600);
+  });
+
+  $('#prev').click(function() {
+    if (pos > 0) {
+      pos -= 1;
+    } else {
+      pos = slideCount - 1;
+    }
     var slideAmount = slideWidth * pos;
     $('#slide_tray').animate({right: slideAmount}, 600);
   });
 
 });
+
+
+
+
+
+
+
+
+
